@@ -35,7 +35,7 @@ module.exports = async function handler(req, res) {
     const comments = await db.getComments();
     list = list.map(p => ({
       ...p,
-      commentCount: comments.filter(c => c.postId === p.id).length
+      commentCount: 0
     }));
     return res.json({ code: 0, msg: 'ok', data: { list, total: list.length } });
   }
