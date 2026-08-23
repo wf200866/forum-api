@@ -26,7 +26,8 @@ module.exports = async function handler(req, res) {
   const body = req.body || {};
   const { postId, content } = body;
   if (!postId) return res.json({ code: 1, msg: '缺少 postId' });
-  if (!content || !content.trim()) return res.json({ code: 1, msg: '评论内容不能为空' });
+  if (!db.checkRate("comment:"+user.username)) return res.json({ code: 1, msg: "评论太快，请稍后再试" });
+      if (!content || !content.trim()) return res.json({ code: 1, msg: '评论内容不能为空' });
   if (content.length > 500) return res.json({ code: 1, msg: '评论不超过 500 字' });
 
   const pid = Number(postId);

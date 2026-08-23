@@ -46,6 +46,7 @@ module.exports = async function handler(req, res) {
 
     const body = req.body || {};
     const { title, content, category } = body;
+    if (!db.checkRate("post:"+user.username)) return res.json({ code: 1, msg: "发帖太快，请稍后再试" });
     if (!title || !content) return res.json({ code: 1, msg: '标题和内容不能为空' });
     if (title.length > 50) return res.json({ code: 1, msg: '标题不超过 50 字' });
     if (content.length > 5000) return res.json({ code: 1, msg: '内容不超过 5000 字' });
