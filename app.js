@@ -182,7 +182,7 @@ function renderAbout(){return'<div class="card" style="padding:30px;text-align:c
 // ---- 弹窗 ----
 function showLoginSheet(){
   var sb=$('#sheetBody');if(!sb)return;
-  sb.innerHTML='<div class="sheet-h"><div class="sheet-tt">登录</div><div class="sheet-c" id="cCancel">取消</div></div><div class="sheet-b"><div class="field"><label>用户名</label><input class="input" id="loginName" placeholder="驭鬼者代号"></div><div class="field"><label>密码</label><input class="input" type="password" id="loginPass" placeholder="密钥"></div><div class="btn row"><div class="btn ghost" id="toRegister">注册</div><div class="btn red" id="loginBtn">登录</div></div></div>';
+  sb.innerHTML='<div class="sheet-h"><div class="sheet-tt">登录</div></div><div class="sheet-b"><div class="field"><label>用户名</label><input class="input" id="loginName" placeholder="驭鬼者代号"></div><div class="field"><label>密码</label><input class="input" type="password" id="loginPass" placeholder="密钥"></div><div class="btn row"><div class="btn ghost" id="toRegister">注册</div><div class="btn red" id="loginBtn">登录</div></div></div>';
   $('#cCancel').onclick=hideCompose;
   $('#loginBtn').onclick=async function(){
     var u=$('#loginName').value.trim(),p=$('#loginPass').value;
@@ -197,7 +197,7 @@ function showLoginSheet(){
 
 function showRegisterSheet(){
   var sb=$('#sheetBody');if(!sb)return;
-  sb.innerHTML='<div class="sheet-h"><div class="sheet-tt">注册</div><div class="sheet-c" id="cCancel">取消</div></div><div class="sheet-b"><div class="field"><label>用户名</label><input class="input" id="regName" placeholder="2-12字"></div><div class="field"><label>密码</label><input class="input" type="password" id="regPass" placeholder="至少4位"></div><div class="btn row"><div class="btn ghost" id="toLogin">返回登录</div><div class="btn red" id="regBtn">注册</div></div></div>';
+  sb.innerHTML='<div class="sheet-h"><div class="sheet-tt">注册</div></div><div class="sheet-b"><div class="field"><label>用户名</label><input class="input" id="regName" placeholder="2-12字"></div><div class="field"><label>密码</label><input class="input" type="password" id="regPass" placeholder="至少4位"></div><div class="btn row"><div class="btn ghost" id="toLogin">返回登录</div><div class="btn red" id="regBtn">注册</div></div></div>';
   $('#cCancel').onclick=hideCompose;
   $('#regBtn').onclick=async function(){
     var u=$('#regName').value.trim(),p=$('#regPass').value;
@@ -216,7 +216,7 @@ function showCompose(type,pid){
   state.composeType=type;
   var sb=$('#sheetBody');if(!sb)return;
   if(type==='post'){
-    sb.innerHTML='<div class="sheet-h"><div class="sheet-tt">发布新帖</div><div class="sheet-c" id="cCancel">取消</div></div><div class="sheet-b"><div class="field"><label>标题</label><input class="input" id="cTitle" maxlength="40" placeholder="标题"></div><div class="field"><label>正文</label><textarea class="textarea" id="cBody" placeholder="内容"></textarea></div><div class="field"><label>分类</label><select class="input" id="cCategory"><option>驭鬼心得</option><option>鬼事实录</option><option>规律情报</option><option>求援求助</option></select></div></div><div class="btn row"><div class="btn ghost" id="cCancel2">取消</div><div class="btn red" id="cSubmit">发布</div></div>';
+    sb.innerHTML='<div class="sheet-h"><div class="sheet-tt">发布新帖</div></div><div class="sheet-b"><div class="field"><label>标题</label><input class="input" id="cTitle" maxlength="40" placeholder="标题"></div><div class="field"><label>正文</label><textarea class="textarea" id="cBody" placeholder="内容"></textarea></div><div class="field"><label>分类</label><select class="input" id="cCategory"><option>驭鬼心得</option><option>鬼事实录</option><option>规律情报</option><option>求援求助</option></select></div></div><div class="btn row"><div class="btn ghost" id="cCancel2">取消</div><div class="btn red" id="cSubmit">发布</div></div>';
     $('#cCancel').onclick=$('#cCancel2').onclick=hideCompose;
     $('#cSubmit').onclick=async function(){
       var t=$('#cTitle').value.trim(),b=$('#cBody').value.trim(),cat=$('#cCategory').value;
@@ -226,7 +226,7 @@ function showCompose(type,pid){
       hideCompose();render();
     };
   }else{
-    sb.innerHTML='<div class="sheet-h"><div class="sheet-tt">回复</div><div class="sheet-c" id="cCancel">取消</div></div><div class="sheet-b"><div class="field"><label>回复</label><textarea class="textarea" id="rBody" placeholder="说点什么…"></textarea></div></div><div class="btn row"><div class="btn ghost" id="cCancel2">取消</div><div class="btn red" id="rSubmit">回复</div></div>';
+    sb.innerHTML='<div class="sheet-h"><div class="sheet-tt">回复</div></div><div class="sheet-b"><div class="field"><label>回复</label><textarea class="textarea" id="rBody" placeholder="说点什么…"></textarea></div></div><div class="btn row"><div class="btn ghost" id="cCancel2">取消</div><div class="btn red" id="rSubmit">回复</div></div>';
     $('#cCancel').onclick=$('#cCancel2').onclick=hideCompose;
     $('#rSubmit').onclick=async function(){
       var b=$('#rBody').value.trim();
