@@ -62,7 +62,7 @@ function toast(m,t=1600){
   const el=$('#toast');el.textContent=m;el.classList.add('on');
   clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),t);
 }
-let apiBase = 'https://forum-api-jz53.vercel.app';
+let apiBase = 'https://forum-api-nodep1.vercel.app';
 
 function apiFetch(endpoint, opts={}){
   return fetch(apiBase + endpoint, {

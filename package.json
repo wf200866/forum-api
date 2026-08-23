@@ -2,9 +2,5 @@
   "name": "mystery-revive-forum-api",
   "version": "1.0.0",
   "type": "commonjs",
-  "scripts": {},
-  "dependencies": {
-    "@upstash/redis": "^1.34.0",
-    "bcryptjs": "^2.4.3"
-  }
+  "scripts": {}
 }
